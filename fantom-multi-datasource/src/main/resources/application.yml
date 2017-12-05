@@ -1,0 +1,15 @@
+#datasource1
+spring:
+  datasource:
+    primary:
+      url: jdbc:mysql://192.168.0.197:3306/houhan_library
+      username: root
+      password: znsb2016
+      driver-class-name: com.mysql.jdbc.Driver
+
+#datasource2
+    secondary:
+      url: jdbc:mysql://127.0.0.1:3306/houhan_library
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver

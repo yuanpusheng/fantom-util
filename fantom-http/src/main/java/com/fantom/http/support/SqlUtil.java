@@ -14,9 +14,8 @@ import java.util.Map;
 @Slf4j
 public class SqlUtil {
     /**
-     * 插入实体
+     * 生成Insert NameValue Sql
      *
-     * @param <T>
      * @param tableName
      * @param fieldMap
      * @return

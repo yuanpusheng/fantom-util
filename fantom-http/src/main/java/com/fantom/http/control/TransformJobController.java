@@ -20,6 +20,18 @@ public class TransformJobController {
     @Autowired
     TransformJobService transformJobService;
 
+
+    /**
+     * Test
+     * @return
+     */
+    @RequestMapping("/hello/{some}")
+    public ResponseBean hello(@PathVariable String some){
+        ResponseBean result = ResponseBeanUtil.success();
+        result.setMessage("hello" + some);
+        return result;
+    }
+
     /**
      * 添加 配置文件
      * @return

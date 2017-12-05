@@ -1,16 +1,19 @@
 package com.fantom.http.service;
 
 import com.fantom.http.entity.JobConfig;
+import com.fantom.http.support.JsonUtil;
 import com.fantom.http.support.SqlUtil;
-import com.fantom.http.support.resp.ResponseBean;
+import com.fantom.util.http.HttpSender;
+import com.sun.xml.internal.ws.policy.PolicyMapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanMap;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.*;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -34,6 +37,13 @@ public class TransformJobService {
     }
 
     public Integer execute(Integer jobId) {
+        String targetUrl = "";
+        Map map = new HashMap();
+        map.put("jobId", jobId);
+        String preSql = "select * from job_config where id = :jobId";
+        JobConfig jobConfig = namedParameterJdbcTemplate.queryForObject(preSql, map, JobConfig.class);
+        String params = "jobConfig="+JsonUtil.obj2Json(jobConfig);
+        String result = HttpSender.post(targetUrl, params);
         return 1;
     }
 

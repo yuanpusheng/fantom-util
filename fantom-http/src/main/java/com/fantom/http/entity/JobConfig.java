@@ -13,6 +13,8 @@ import java.util.List;
  */
 @Data
 public class JobConfig {
+    protected String name;
+    protected String description;
     protected String sourceDb;
     protected String targetDb;
     /**
