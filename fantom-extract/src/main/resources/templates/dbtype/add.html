@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add DbType</title>
+</head>
+<body>
+<form action="#" th:action="@{/dbtype/save}" th:object="${dbType}" method="post">
+    <div class="form-group">
+        <label for="name">名称</label>
+        <input type="text" class="form-control" id="name" placeholder="名称" th:value="name" th:field="*{name}" />
+
+        <label for="description">描述</label>
+        <input type="text" class="form-control" id="description" placeholder="描述" th:value="description" th:field="*{description}" />
+
+        <label for="dbDriver">数据库驱动</label>
+        <input type="text" class="form-control" id="dbDriver" placeholder="数据库驱动" th:value="dbDriver" th:field="*{db_driver}" />
+
+        <label for="urlPrefix">连接前缀</label>
+        <input type="text" class="form-control" id="urlPrefix" placeholder="连接前缀" th:field="*{url_prefix}" />
+    </div>
+    <input type="submit" />
+</form>
+</body>
+</html>

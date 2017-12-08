@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add DbType</title>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>名称</th><th>描述</th><th>数据库驱动</th><th>连接前缀</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="unit : ${list}">
+        <td th:text="${unit.['name']}"></td><td th:text="${unit.['description']}"></td><td th:text="${unit.['db_driver']}"></td><td th:text="${unit.['url_prefix']}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
